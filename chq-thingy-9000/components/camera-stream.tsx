@@ -1,7 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { Loader2, VideoOff, RefreshCw } from "lucide-react"
+import { VideoOff, RefreshCw } from "lucide-react"
+import { Loader } from "rsuite"
+import "rsuite/dist/rsuite-no-reset.min.css"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -43,9 +45,8 @@ export function CameraStream() {
       )}
 
       {status === "loading" && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-muted-foreground">
-          <Loader2 className="size-7 animate-spin" />
-          <span className="text-sm tracking-wide">Connecting to camera</span>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Loader speed="fast" inverse />
         </div>
       )}
 
