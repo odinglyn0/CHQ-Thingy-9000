@@ -34,7 +34,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main className="flex flex-1 flex-col items-center justify-center gap-10 px-6 py-16">
-        <h1 className="font-heading text-center text-5xl text-white sm:text-6xl md:text-7xl">
+        <h1 className="font-heading pointer-events-none text-center text-5xl text-white select-none sm:text-6xl md:text-7xl">
           CHQ Thingy 9000
         </h1>
         <div className="relative aspect-video w-full max-w-4xl overflow-hidden rounded-xl border bg-black shadow-2xl">

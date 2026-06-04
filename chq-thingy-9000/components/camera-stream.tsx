@@ -30,8 +30,11 @@ export function CameraStream() {
           key={nonce}
           src={`${STREAM_ENDPOINT}?t=${nonce}`}
           alt="CHQ Building live camera feed"
+          draggable={false}
+          onContextMenu={(event) => event.preventDefault()}
+          onDragStart={(event) => event.preventDefault()}
           className={cn(
-            "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
+            "pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-500 select-none",
             status === "live" ? "opacity-100" : "opacity-0"
           )}
           onLoad={() => setStatus("live")}
