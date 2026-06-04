@@ -10,7 +10,7 @@ type StreamStatus = "loading" | "live" | "error"
 
 const STREAM_ENDPOINT = "/api/stream"
 
-export function CameraStream({ className }: { className?: string }) {
+export function CameraStream() {
   const [status, setStatus] = React.useState<StreamStatus>("loading")
   const [nonce, setNonce] = React.useState(0)
 
@@ -18,27 +18,20 @@ export function CameraStream({ className }: { className?: string }) {
     setNonce(Date.now())
   }, [])
 
-  const src = `${STREAM_ENDPOINT}?t=${nonce}`
-
   const reconnect = React.useCallback(() => {
     setStatus("loading")
     setNonce(Date.now())
   }, [])
 
   return (
-    <div
-      className={cn(
-        "relative aspect-video w-full overflow-hidden rounded-xl border bg-black shadow-2xl",
-        className
-      )}
-    >
+    <>
       {nonce !== 0 && (
         <img
           key={nonce}
-          src={src}
-          alt="CHQ live camera feed"
+          src={`${STREAM_ENDPOINT}?t=${nonce}`}
+          alt="CHQ Building live camera feed"
           className={cn(
-            "h-full w-full object-cover transition-opacity duration-500",
+            "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
             status === "live" ? "opacity-100" : "opacity-0"
           )}
           onLoad={() => setStatus("live")}
@@ -63,6 +56,6 @@ export function CameraStream({ className }: { className?: string }) {
           </Button>
         </div>
       )}
-    </div>
+    </>
   )
 }

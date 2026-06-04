@@ -14,9 +14,58 @@ const coolvetica = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "CHQ Thingy 9000",
-  description: "Live camera feed for CHQ Thingy 9000.",
+  title: {
+    default: "CHQ Thingy 9000",
+    template: "%s | CHQ Thingy 9000",
+  },
+  description:
+    "A proxy of a security camera in the CHQ Building, Dublin. Apparently exposing IP cameras to the world with zero auth is normal, so why not.",
   metadataBase: new URL("https://chqthingy.odinglynn.com"),
+  applicationName: "CHQ Thingy 9000",
+  authors: [{ name: "Odin Glynn", url: "https://odinglynn.com" }],
+  creator: "Odin Glynn",
+  publisher: "Odin Glynn",
+  keywords: [
+    "CHQ Thingy 9000",
+    "CHQ Building",
+    "CHQ Building camera",
+    "Dublin live camera",
+    "Dublin webcam",
+    "AXIS M3006",
+    "IP camera",
+    "live stream",
+    "Docklands",
+  ],
+  category: "technology",
+  alternates: {
+    canonical: "https://chqthingy.odinglynn.com",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "CHQ Thingy 9000",
+    title: "CHQ Thingy 9000",
+    description:
+      "A proxy of a security camera in the CHQ Building, Dublin. The URL looks cooler than an IP.",
+    url: "https://chqthingy.odinglynn.com",
+    locale: "en_IE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CHQ Thingy 9000",
+    description:
+      "A proxy of a security camera in the CHQ Building, Dublin. The URL looks cooler than an IP.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 }
 
 export const viewport: Viewport = {
