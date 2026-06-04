@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 
 import "./globals.css"
 import { cn } from "@/lib/utils"
+import { ClarityAnalytics } from "@/components/clarity"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -85,12 +86,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID
+
   return (
     <html
       lang="en"
       className={cn("dark antialiased", inter.variable, coolvetica.variable)}
     >
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {clarityProjectId ? (
+          <ClarityAnalytics projectId={clarityProjectId} />
+        ) : null}
+        {children}
+      </body>
     </html>
   )
 }
